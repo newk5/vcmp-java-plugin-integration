@@ -9,4 +9,16 @@ public class Vector {
         this.y = y;
         this.z = z;
     }
+
+    public Vector(Integer x, Integer y, Integer z) {
+        this.x = new Float(x);
+        this.y = new Float(y);
+        this.z = new Float(z);
+    }
+
+    public Vector(Double x, Double y, Double z) {
+        this.x = new Float(x);
+        this.y = new Float(y);
+        this.z = new Float(z);
+    }
 }

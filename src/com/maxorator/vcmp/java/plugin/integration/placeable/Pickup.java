@@ -6,6 +6,7 @@ import com.maxorator.vcmp.java.plugin.integration.generic.Vector;
 
 @SuppressWarnings("unused")
 public interface Pickup extends Entity {
+
     void delete();
 
     boolean isStreamedForPlayer(Player player);
@@ -31,6 +32,12 @@ public interface Pickup extends Entity {
     void setPosition(Vector position);
 
     void setPosition(float x, float y, float z);
+
+    void setPos(Double x, Double y, Double z);
+
+    void setPos(Integer x, Integer y, Integer z);
+
+    Vector getPos();
 
     Vector getPosition();
 

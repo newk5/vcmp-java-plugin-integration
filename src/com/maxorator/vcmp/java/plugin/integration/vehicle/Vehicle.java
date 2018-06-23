@@ -8,6 +8,7 @@ import com.maxorator.vcmp.java.plugin.integration.player.Player;
 
 @SuppressWarnings("unused")
 public interface Vehicle extends Entity {
+
     void delete();
 
     Player getSyncController();
@@ -44,11 +45,45 @@ public interface Vehicle extends Entity {
 
     void setPosition(float x, float y, float z);
 
+    void setPos(Integer x, Integer y, Integer z);
+
+    void setPos(Double x, Double y, Double z);
+
+    Vector getPos();
+
     Vector getPosition();
 
     void setRotation(Quaternion rotation);
 
     void setRotation(float x, float y, float z, float w);
+
+    void setSpawnRotation(Double x, Double y, Double z, Double w);
+
+    void setSpawnRotation(Integer x, Integer y, Integer z, Integer w);
+
+    void setSpawnRotationEuler(Double x, Double y, Double z);
+
+    void setSpawnRotationEuler(Integer x, Integer y, Integer z);
+
+    void setRotationEuler(Double x, Double y, Double z);
+
+    void setRotationEuler(Integer x, Integer y, Integer z);
+
+    void setSpeed(Integer x, Integer y, Integer z, boolean add, boolean relative);
+
+    void setSpeed(Double x, Double y, Double z, boolean add, boolean relative);
+
+    void setTurnSpeed(Double x, Double y, Double z, boolean add, boolean relative);
+
+    void setTurnSpeed(Integer x, Integer y, Integer z, boolean add, boolean relative);
+
+    void setSpawnPos(Double x, Double y, Double z);
+
+    void setSpawnPos(Integer x, Integer y, Integer z);
+
+    void setRotation(Double x, Double y, Double z, Double w);
+
+    void setRotation(Integer x, Integer y, Integer z, Integer w);
 
     Quaternion getRotation();
 

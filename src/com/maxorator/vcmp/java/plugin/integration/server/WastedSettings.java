@@ -3,6 +3,7 @@ package com.maxorator.vcmp.java.plugin.integration.server;
 import com.maxorator.vcmp.java.plugin.integration.generic.Colour;
 
 public class WastedSettings {
+
     public int deathTimeMillis;
     public int fadeTimeMillis;
     public float fadeInSpeed;
@@ -16,6 +17,26 @@ public class WastedSettings {
         this.fadeTimeMillis = fadeTimeMillis;
         this.fadeInSpeed = fadeInSpeed;
         this.fadeOutSpeed = fadeOutSpeed;
+        this.fadeColour = fadeColour;
+        this.corpseFadeStart = corpseFadeStart;
+        this.corpseFadeDuration = corpseFadeDuration;
+    }
+
+    public WastedSettings(int deathTimeMillis, int fadeTimeMillis, Double fadeInSpeed, Double fadeOutSpeed, Colour fadeColour, int corpseFadeStart, int corpseFadeDuration) {
+        this.deathTimeMillis = deathTimeMillis;
+        this.fadeTimeMillis = fadeTimeMillis;
+        this.fadeInSpeed = new Float(fadeInSpeed);
+        this.fadeOutSpeed = new Float(fadeOutSpeed);
+        this.fadeColour = fadeColour;
+        this.corpseFadeStart = corpseFadeStart;
+        this.corpseFadeDuration = corpseFadeDuration;
+    }
+
+    public WastedSettings(int deathTimeMillis, int fadeTimeMillis, Integer fadeInSpeed, Integer fadeOutSpeed, Colour fadeColour, int corpseFadeStart, int corpseFadeDuration) {
+        this.deathTimeMillis = deathTimeMillis;
+        this.fadeTimeMillis = fadeTimeMillis;
+        this.fadeInSpeed = new Float(fadeInSpeed);
+        this.fadeOutSpeed = new Float(fadeOutSpeed);
         this.fadeColour = fadeColour;
         this.corpseFadeStart = corpseFadeStart;
         this.corpseFadeDuration = corpseFadeDuration;

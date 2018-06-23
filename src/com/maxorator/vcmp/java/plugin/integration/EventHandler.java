@@ -7,6 +7,7 @@ import com.maxorator.vcmp.java.plugin.integration.player.Player;
 import com.maxorator.vcmp.java.plugin.integration.vehicle.Vehicle;
 
 public interface EventHandler {
+
     void onServerLoadScripts();
 
     void onServerUnloadScripts();
@@ -62,8 +63,10 @@ public interface EventHandler {
     void onPlayerAwayChange(Player player, boolean isAway);
 
     boolean onPlayerMessage(Player player, String message);
-    
+
     void onPlayerCrashReport(Player player, String crashLog);
+
+    void onPlayerModuleList(Player player, String list);
 
     boolean onPlayerCommand(Player player, String message);
 

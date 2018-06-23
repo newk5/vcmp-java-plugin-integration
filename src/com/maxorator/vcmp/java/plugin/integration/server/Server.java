@@ -15,7 +15,60 @@ import java.io.IOException;
 
 @SuppressWarnings("unused")
 public interface Server {
+
     void reloadScript();
+
+    Vehicle createVehicle(int modelId, int worldId, Vector position, Double angle, VehicleColours colours);
+
+    Vehicle createVehicle(int modelId, int worldId, Vector position, Integer angle, VehicleColours colours);
+
+    CheckPoint createCheckPoint(Player player, int worldId, boolean isSphere, Double x, Double y, Double z, int r, int g, int b, int a, Double radius);
+
+    CheckPoint createCheckPoint(Player player, int worldId, boolean isSphere, Integer x, Integer y, Integer z, int r, int g, int b, int a, Integer radius);
+
+    Vehicle createVehicle(int modelId, int worldId, Double x, Double y, Double z, Double angle, int mainColour, int secondaryColour);
+
+    Vehicle createVehicle(int modelId, int worldId, Integer x, Integer y, Integer z, Integer angle, int mainColour, int secondaryColour);
+
+    GameObject createObject(int modelId, int worldId, Double x, Double y, Double z, int alpha);
+
+    GameObject createObject(int modelId, int worldId, Integer x, Integer y, Integer z, int alpha);
+
+    void setSpawnScreenCameraPos(Double x, Double y, Double z);
+
+    Pickup createPickup(int modelId, int worldId, int quantity, Double x, Double y, Double z, int alpha, boolean automatic);
+
+    Pickup createPickup(int modelId, int worldId, int quantity, Integer x, Integer y, Integer z, int alpha, boolean automatic);
+
+    void setSpawnScreenCameraPos(Integer x, Integer y, Integer z);
+
+    void createExplosion(int worldId, int type, Integer x, Integer y, Integer z, Player responsiblePlayer, boolean atGroundLevel);
+
+    void setSpawnScreenPlayerPos(Double x, Double y, Double z);
+
+    void setSpawnScreenPlayerPos(Integer x, Integer y, Integer z);
+
+    void playSound(int worldId, int soundId, Double x, Double y, Double z);
+
+    int createCoordBlip(int index, int worldId, Double x, Double y, Double z, int scale, int colourHex, int spriteId);
+
+    int addPlayerClass(int teamId, int colourHex, int modelId, Double x, Double y, Double z, Double angle, int weaponOne, int weaponOneAmmo, int weaponTwo, int weaponTwoAmmo, int weaponThree, int weaponThreeAmmo);
+
+    int addPlayerClass(int teamId, int colourHex, int modelId, Integer x, Integer y, Integer z, Integer angle, int weaponOne, int weaponOneAmmo, int weaponTwo, int weaponTwoAmmo, int weaponThree, int weaponThreeAmmo);
+
+    int createCoordBlip(int index, int worldId, Integer x, Integer y, Integer z, int scale, int colourHex, int spriteId);
+
+    void showMapObject(int modelId, Double x, Double y, Double z);
+
+    void showMapObject(int modelId, Integer x, Integer y, Integer z);
+
+    void playSound(int worldId, int soundId, Integer x, Integer y, Integer z);
+
+    void createExplosion(int worldId, int type, Double x, Double y, Double z, Player responsiblePlayer, boolean atGroundLevel);
+
+    void hideMapObject(int modelId, Integer x, Integer y, Integer z);
+
+    void hideMapObject(int modelId, Double x, Double y, Double z);
 
     boolean isUnloaded();
 
@@ -59,6 +112,10 @@ public interface Server {
 
     void setWorldBounds(float maxX, float minX, float maxY, float minY);
 
+    void setWorldBounds(Integer maxX, Integer minX, Integer maxY, Integer minY);
+
+    void setWorldBounds(Double maxX, Double minX, Double maxY, Double minY);
+
     MapBounds getWorldBounds();
 
     void setWastedSettings(WastedSettings settings);
@@ -85,17 +142,33 @@ public interface Server {
 
     void setGravity(float gravity);
 
+    void setGravity(Double gravity);
+
+    void setGravity(Integer gravity);
+
     float getGravity();
 
     void setGameSpeed(float gameSpeed);
+
+    void setGameSpeed(Integer gameSpeed);
+
+    void setGameSpeed(Double gameSpeed);
 
     float getGameSpeed();
 
     void setWaterLevel(float waterLevel);
 
+    void setWaterLevel(Double waterLevel);
+
+    void setWaterLevel(Integer waterLevel);
+
     float getWaterLevel();
 
     void setAltitudeLimit(float altitudeLimit);
+
+    void setAltitudeLimit(Double altitudeLimit);
+
+    void setAltitudeLimit(Integer altitudeLimit);
 
     float getAltitudeLimit();
 
@@ -104,6 +177,10 @@ public interface Server {
     int getKillCommandDelay();
 
     void setVehiclesForcedRespawnAltitude(float height);
+
+    void setVehiclesForcedRespawnAltitude(Integer height);
+
+    void setVehiclesForcedRespawnAltitude(Double height);
 
     float getVehiclesForcedRespawnAltitude();
 

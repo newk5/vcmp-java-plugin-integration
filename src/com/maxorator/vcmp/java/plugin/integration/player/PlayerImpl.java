@@ -8,6 +8,7 @@ import com.maxorator.vcmp.java.plugin.integration.vehicle.Vehicle;
 
 @SuppressWarnings("unused")
 public class PlayerImpl extends EntityImpl implements Player {
+
     protected PlayerImpl(int id) {
         super(id);
     }
@@ -22,8 +23,77 @@ public class PlayerImpl extends EntityImpl implements Player {
     public native String getIP();
 
     @Override
+    public void setHp(Integer hp) {
+        Float f = new Float(hp + "");
+        setHealth(f);
+    }
+
+    @Override
+    public Vector getPos() {
+        return getPosition();
+    }
+
+    @Override
+    public void setPos(Integer x, Integer y, Integer z) {
+        setPosition(new Float(x), new Float(y), new Float(z));
+    }
+
+    @Override
+    public void setPos(Double x, Double y, Double z) {
+        setPosition(new Float(x), new Float(y), new Float(z));
+    }
+
+    @Override
+    public void setHp(Double hp) {
+        Float f = new Float(hp + "");
+        setHealth(f);
+    }
+
+    @Override
+    public void setCameraPos(Integer posX, Integer posY, Integer posZ, Integer lookX, Integer lookY, Integer lookZ) {
+        setCameraPos(posX.doubleValue(), posY.doubleValue(), posZ.doubleValue(), lookX.doubleValue(), lookY.doubleValue(), lookZ.doubleValue());
+    }
+
+    @Override
+    public void setCameraPos(Double posX, Double posY, Double posZ, Double lookX, Double lookY, Double lookZ) {
+        setCameraPosition(new Float(posX), new Float(posY), new Float(posZ), new Float(lookX), new Float(lookY), new Float(lookZ));
+    }
+
+    @Override
+    public void setArmour(Integer armor) {
+        setArmour(new Float(armor));
+    }
+
+    @Override
+    public void setArmour(Double armor) {
+        setArmour(new Float(armor));
+    }
+
+    @Override
+    public void setSpeed(Double x, Double y, Double z) {
+        setSpeed(new Float(x), new Float(y), new Float(z));
+    }
+
+    @Override
+    public void setSpeed(Integer x, Integer y, Integer z) {
+        setSpeed(new Float(x), new Float(y), new Float(z));
+    }
+
+    @Override
+    public void addSpeed(Integer x, Integer y, Integer z) {
+        addSpeed(new Float(x), new Float(y), new Float(z));
+    }
+
+    @Override
+    public void addSpeed(Double x, Double y, Double z) {
+        addSpeed(new Float(x), new Float(y), new Float(z));
+    }
+
+    @Override
     public native void kick();
 
+    @Override
+    public native void requestModuleList();
     @Override
     public native void ban();
 

@@ -93,6 +93,204 @@ public class ServerImpl implements Server {
     }
 
     @Override
+    public CheckPoint createCheckPoint(Player player, int worldId, boolean isSphere, Double x, Double y, Double z, int r, int g, int b, int a, Double radius) {
+        Colour c = new Colour(r, g, b, a);
+        return createCheckPoint(player, worldId, isSphere, new Vector(x, y, z), c, new Float(radius));
+    }
+
+    @Override
+    public CheckPoint createCheckPoint(Player player, int worldId, boolean isSphere, Integer x, Integer y, Integer z, int r, int g, int b, int a, Integer radius) {
+        Colour c = new Colour(r, g, b, a);
+        return createCheckPoint(player, worldId, isSphere, new Vector(x, y, z), c, new Float(radius));
+    }
+
+    @Override
+    public void setGameSpeed(Integer gameSpeed) {
+        setGameSpeed(new Float(gameSpeed));
+    }
+
+    @Override
+    public void setGameSpeed(Double gameSpeed) {
+        setGameSpeed(new Float(gameSpeed));
+    }
+
+    @Override
+    public void setGravity(Integer grav) {
+        setGravity(new Float(grav));
+    }
+
+    @Override
+    public void setGravity(Double grav) {
+        setGravity(new Float(grav));
+    }
+
+    @Override
+    public void setWaterLevel(Integer waterLevel) {
+        setWaterLevel(new Float(waterLevel));
+    }
+
+    @Override
+    public void setWaterLevel(Double waterLevel) {
+        setWaterLevel(new Float(waterLevel));
+    }
+
+    @Override
+    public void setAltitudeLimit(Integer alt) {
+        setAltitudeLimit(new Float(alt));
+    }
+
+    @Override
+    public void setAltitudeLimit(Double alt) {
+        setAltitudeLimit(new Float(alt));
+    }
+
+    @Override
+    public void setVehiclesForcedRespawnAltitude(Integer alt) {
+        setVehiclesForcedRespawnAltitude(new Float(alt));
+    }
+
+    @Override
+    public void setVehiclesForcedRespawnAltitude(Double alt) {
+        setVehiclesForcedRespawnAltitude(new Float(alt));
+    }
+
+    @Override
+    public GameObject createObject(int modelId, int worldId, Double x, Double y, Double z, int alpha) {
+        return createObject(modelId, worldId, new Vector(x, y, z), alpha);
+    }
+
+    @Override
+    public GameObject createObject(int modelId, int worldId, Integer x, Integer y, Integer z, int alpha) {
+        return createObject(modelId, worldId, new Vector(x, y, z), alpha);
+    }
+
+    @Override
+    public Pickup createPickup(int modelId, int worldId, int quantity, Double x, Double y, Double z, int alpha, boolean automatic) {
+        return createPickup(modelId, worldId, quantity, new Vector(x, y, z), alpha, automatic);
+    }
+
+    @Override
+    public Pickup createPickup(int modelId, int worldId, int quantity, Integer x, Integer y, Integer z, int alpha, boolean automatic) {
+        return createPickup(modelId, worldId, quantity, new Vector(x, y, z), alpha, automatic);
+    }
+
+    @Override
+    public Vehicle createVehicle(int modelId, int worldId, Double x, Double y, Double z, Double angle, int mainColour, int secondaryColour) {
+        VehicleColours col = new VehicleColours(mainColour, secondaryColour);
+        return createVehicle(modelId, worldId, new Vector(x, y, z), new Float(angle), col);
+    }
+
+    @Override
+    public Vehicle createVehicle(int modelId, int worldId, Integer x, Integer y, Integer z, Integer angle, int mainColour, int secondaryColour) {
+        VehicleColours col = new VehicleColours(mainColour, secondaryColour);
+        return createVehicle(modelId, worldId, new Vector(x, y, z), new Float(angle), col);
+    }
+
+    @Override
+    public Vehicle createVehicle(int modelId, int worldId, Vector position, Integer angle, VehicleColours colours) {
+        Vehicle v = createVehicle(modelId, worldId, position.x, position.y, position.z, angle, colours.primary, colours.secondary);
+        v.clearData();
+        return v;
+    }
+
+    @Override
+    public Vehicle createVehicle(int modelId, int worldId, Vector position, Double angle, VehicleColours colours) {
+        Vehicle v = createVehicle(modelId, worldId, position.x, position.y, position.z, new Float(angle), colours.primary, colours.secondary);
+        v.clearData();
+        return v;
+    }
+
+    @Override
+    public void setSpawnScreenPlayerPos(Double x, Double y, Double z) {
+        setSpawnScreenPlayerPos(new Float(x), new Float(y), new Float(z));
+    }
+
+    @Override
+    public void setSpawnScreenPlayerPos(Integer x, Integer y, Integer z) {
+        setSpawnScreenPlayerPos(new Float(x), new Float(y), new Float(z));
+    }
+
+    @Override
+    public int addPlayerClass(int teamId, int colourHex, int modelId, Double x, Double y, Double z, Double angle, int weaponOne, int weaponOneAmmo, int weaponTwo, int weaponTwoAmmo, int weaponThree, int weaponThreeAmmo) {
+        return addPlayerClass(teamId, colourHex, modelId, new Float(x), new Float(y), new Float(z), new Float(angle), weaponOne, weaponOneAmmo, weaponTwo, weaponTwoAmmo, weaponThree, weaponThreeAmmo);
+    }
+
+    @Override
+    public int addPlayerClass(int teamId, int colourHex, int modelId, Integer x, Integer y, Integer z, Integer angle, int weaponOne, int weaponOneAmmo, int weaponTwo, int weaponTwoAmmo, int weaponThree, int weaponThreeAmmo) {
+        return addPlayerClass(teamId, colourHex, modelId, new Float(x), new Float(y), new Float(z), new Float(angle), weaponOne, weaponOneAmmo, weaponTwo, weaponTwoAmmo, weaponThree, weaponThreeAmmo);
+    }
+
+    @Override
+    public void setSpawnScreenCameraPos(Double x, Double y, Double z) {
+        setSpawnScreenCameraPos(new Float(x), new Float(y), new Float(z));
+    }
+
+    @Override
+    public void setSpawnScreenCameraPos(Integer x, Integer y, Integer z) {
+        setSpawnScreenCameraPos(new Float(x), new Float(y), new Float(z));
+    }
+
+    @Override
+    public int createCoordBlip(int index, int worldId, Integer x, Integer y, Integer z, int scale, int colourHex, int spriteId) {
+        return createCoordBlip(index, worldId, new Float(x), new Float(y), new Float(z), scale, colourHex, spriteId);
+    }
+
+    @Override
+    public int createCoordBlip(int index, int worldId, Double x, Double y, Double z, int scale, int colourHex, int spriteId) {
+        return createCoordBlip(index, worldId, new Float(x), new Float(y), new Float(z), scale, colourHex, spriteId);
+    }
+
+    @Override
+    public void showMapObject(int modelId, Double x, Double y, Double z) {
+        showMapObject(modelId, new Double(x), new Double(y), new Double(z));
+    }
+
+    @Override
+    public void showMapObject(int modelId, Integer x, Integer y, Integer z) {
+        showMapObject(modelId, new Integer(x), new Integer(y), new Integer(z));
+    }
+
+    @Override
+    public void setWorldBounds(Integer maxX, Integer minX, Integer maxY, Integer minY) {
+        setWorldBounds(new Float(maxX), new Float(minX), new Float(maxY), new Float(minY));
+    }
+
+    @Override
+    public void setWorldBounds(Double maxX, Double minX, Double maxY, Double minY) {
+        setWorldBounds(new Float(maxX), new Float(minX), new Float(maxY), new Float(minY));
+    }
+
+    @Override
+    public void createExplosion(int worldId, int type, Integer x, Integer y, Integer z, Player responsiblePlayer, boolean atGroundLevel) {
+        createExplosion(worldId, type, new Float(x), new Float(y), new Float(z), responsiblePlayer, atGroundLevel);
+    }
+
+    @Override
+    public void createExplosion(int worldId, int type, Double x, Double y, Double z, Player responsiblePlayer, boolean atGroundLevel) {
+        createExplosion(worldId, type, new Float(x), new Float(y), new Float(z), responsiblePlayer, atGroundLevel);
+    }
+
+    @Override
+    public void hideMapObject(int modelId, Integer x, Integer y, Integer z) {
+        hideMapObject(modelId, new Float(x), new Float(y), new Float(z));
+    }
+
+    @Override
+    public void hideMapObject(int modelId, Double x, Double y, Double z) {
+        hideMapObject(modelId, new Float(x), new Float(y), new Float(z));
+    }
+
+    @Override
+    public void playSound(int worldId, int soundId, Double x, Double y, Double z) {
+        playSound(worldId, soundId, new Float(x), new Float(y), new Float(z));
+    }
+
+    @Override
+    public void playSound(int worldId, int soundId, Integer x, Integer y, Integer z) {
+        playSound(worldId, soundId, new Float(x), new Float(y), new Float(z));
+    }
+
+    @Override
     public native void rewireEvents(RootEventHandler handler, long usedEvents);
 
     @Override

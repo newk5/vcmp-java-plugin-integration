@@ -8,15 +8,42 @@ import com.maxorator.vcmp.java.plugin.integration.placeable.GameObject;
 
 @SuppressWarnings("unused")
 public interface Player extends Entity {
+
     boolean isAdmin();
 
     void setAdmin(boolean isAdmin);
 
     String getIP();
+    
+    Vector getPos();
 
     void kick();
 
     void ban();
+
+    void setSpeed(Double x, Double y, Double z);
+
+    void setSpeed(Integer x, Integer y, Integer z);
+
+    void addSpeed(Integer x, Integer y, Integer z);
+
+    void addSpeed(Double x, Double y, Double z);
+
+    void setHp(Integer hp);
+
+    void setHp(Double hp);
+
+    void setCameraPos(Double posX, Double posY, Double posZ, Double lookX, Double lookY, Double lookZ);
+
+    void setCameraPos(Integer posX, Integer posY, Integer posZ, Integer lookX, Integer lookY, Integer lookZ);
+
+    void setArmour(Integer armor);
+
+    void setArmour(Double armor);
+
+    void setPos(Integer x, Integer y, Integer z);
+
+    void setPos(Double x, Double y, Double z);
 
     boolean isSpawned();
 
@@ -49,6 +76,8 @@ public interface Player extends Entity {
     void setSkin(int skinId);
 
     int getSkin();
+    
+    void requestModuleList();
 
     void setColour(Colour colour);
 

@@ -4,6 +4,7 @@ import com.maxorator.vcmp.java.plugin.integration.generic.Colour;
 import com.maxorator.vcmp.java.plugin.integration.generic.Vector;
 
 public class CoordBlipInfo {
+
     public int index;
     public int worldId;
     public Vector position;
@@ -21,6 +22,14 @@ public class CoordBlipInfo {
     }
 
     public CoordBlipInfo(int index, int worldId, float posX, float posY, float posZ, int scale, int colourHex, int spriteId) {
+        this(index, worldId, new Vector(posX, posY, posZ), scale, new Colour(colourHex), spriteId);
+    }
+
+    public CoordBlipInfo(int index, int worldId, Double posX, Double posY, Double posZ, int scale, int colourHex, int spriteId) {
+        this(index, worldId, new Vector(posX, posY, posZ), scale, new Colour(colourHex), spriteId);
+    }
+
+    public CoordBlipInfo(int index, int worldId, Integer posX, Integer posY, Integer posZ, int scale, int colourHex, int spriteId) {
         this(index, worldId, new Vector(posX, posY, posZ), scale, new Colour(colourHex), spriteId);
     }
 }

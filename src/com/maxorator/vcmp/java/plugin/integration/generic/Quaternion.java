@@ -10,4 +10,20 @@ public class Quaternion {
         this.z = z;
         this.w = w;
     }
+
+    public Quaternion(Integer x, Integer y, Integer z, Integer w) {
+        this.x = new Float(x);
+        this.y = new Float(y);
+        this.z = new Float(z);
+        this.w = new Float(w);
+    }
+
+    public Quaternion(Double x, Double y, Double z, Double w) {
+        this.x = new Float(x);
+        this.y = new Float(y);
+        this.z = new Float(z);
+        this.w = new Float(w);
+
+    }
+
 }

@@ -8,6 +8,7 @@ import com.maxorator.vcmp.java.plugin.integration.generic.Vector;
 
 @SuppressWarnings("unused")
 public class VehicleImpl extends EntityImpl implements Vehicle {
+
     VehicleImpl(int id) {
         super(id);
     }
@@ -21,6 +22,31 @@ public class VehicleImpl extends EntityImpl implements Vehicle {
     @Override
     public VehicleSyncReason getSyncReason() {
         return VehicleSyncReason.values()[getSyncReasonOrdinal()];
+    }
+
+    @Override
+    public Vector getPos() {
+        return getPosition();
+    }
+
+    @Override
+    public void setPos(Integer x, Integer y, Integer z) {
+        setPosition(new Float(x), new Float(y), new Float(z));
+    }
+
+    @Override
+    public void setRotation(Double x, Double y, Double z, Double w) {
+        setRotation(new Float(x), new Float(y), new Float(z), new Float(w));
+    }
+
+    @Override
+    public void setRotation(Integer x, Integer y, Integer z, Integer w) {
+        setRotation(new Float(x), new Float(y), new Float(z), new Float(w));
+    }
+
+    @Override
+    public void setPos(Double x, Double y, Double z) {
+        setPosition(new Float(x), new Float(y), new Float(z));
     }
 
     @Override
@@ -96,6 +122,16 @@ public class VehicleImpl extends EntityImpl implements Vehicle {
     public native void setRotationEuler(float x, float y, float z);
 
     @Override
+    public void setRotationEuler(Double x, Double y, Double z) {
+        setRotationEuler(new Float(x), new Float(y), new Float(z));
+    }
+
+    @Override
+    public void setRotationEuler(Integer x, Integer y, Integer z) {
+        setRotationEuler(new Float(x), new Float(y), new Float(z));
+    }
+
+    @Override
     public native Vector getRotationEuler();
 
     @Override
@@ -105,6 +141,16 @@ public class VehicleImpl extends EntityImpl implements Vehicle {
 
     @Override
     public native void setSpeed(float x, float y, float z, boolean add, boolean relative);
+
+    @Override
+    public void setSpeed(Integer x, Integer y, Integer z, boolean add, boolean relative) {
+        setSpeed(new Float(x), new Float(y), new Float(z), add, relative);
+    }
+
+    @Override
+    public void setSpeed(Double x, Double y, Double z, boolean add, boolean relative) {
+        setSpeed(new Float(x), new Float(y), new Float(z), add, relative);
+    }
 
     @Override
     public native Vector getSpeed(boolean relative);
@@ -118,6 +164,16 @@ public class VehicleImpl extends EntityImpl implements Vehicle {
     public native void setTurnSpeed(float x, float y, float z, boolean add, boolean relative);
 
     @Override
+    public void setTurnSpeed(Double x, Double y, Double z, boolean add, boolean relative) {
+        setTurnSpeed(new Float(x), new Float(y), new Float(z), add, relative);
+    }
+
+    @Override
+    public void setTurnSpeed(Integer x, Integer y, Integer z, boolean add, boolean relative) {
+        setTurnSpeed(new Float(x), new Float(y), new Float(z), add, relative);
+    }
+
+    @Override
     public native Vector getTurnSpeed(boolean relative);
 
     @Override
@@ -127,6 +183,16 @@ public class VehicleImpl extends EntityImpl implements Vehicle {
 
     @Override
     public native void setSpawnPosition(float x, float y, float z);
+
+    @Override
+    public void setSpawnPos(Double x, Double y, Double z) {
+        setSpawnPosition(new Vector(x, y, z));
+    }
+
+    @Override
+    public void setSpawnPos(Integer x, Integer y, Integer z) {
+        setSpawnPosition(new Vector(x, y, z));
+    }
 
     @Override
     public native Vector getSpawnPosition();
@@ -140,6 +206,16 @@ public class VehicleImpl extends EntityImpl implements Vehicle {
     public native void setSpawnRotation(float x, float y, float z, float w);
 
     @Override
+    public void setSpawnRotation(Double x, Double y, Double z, Double w) {
+        setSpawnRotation(new Quaternion(x, y, z, w));
+    }
+
+    @Override
+    public void setSpawnRotation(Integer x, Integer y, Integer z, Integer w) {
+        setSpawnRotation(new Quaternion(x, y, z, w));
+    }
+
+    @Override
     public native Quaternion getSpawnRotation();
 
     @Override
@@ -149,6 +225,16 @@ public class VehicleImpl extends EntityImpl implements Vehicle {
 
     @Override
     public native void setSpawnRotationEuler(float x, float y, float z);
+
+    @Override
+    public void setSpawnRotationEuler(Double x, Double y, Double z) {
+        setSpawnRotationEuler(new Float(x), new Float(y), new Float(z));
+    }
+
+    @Override
+    public void setSpawnRotationEuler(Integer x, Integer y, Integer z) {
+        setSpawnRotationEuler(new Float(x), new Float(y), new Float(z));
+    }
 
     @Override
     public native Vector getSpawnRotationEuler();

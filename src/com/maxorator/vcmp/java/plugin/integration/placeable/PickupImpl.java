@@ -6,8 +6,24 @@ import com.maxorator.vcmp.java.plugin.integration.generic.Vector;
 
 @SuppressWarnings("unused")
 public class PickupImpl extends EntityImpl implements Pickup {
+
     protected PickupImpl(int id) {
         super(id);
+    }
+
+    @Override
+    public void setPos(Double x, Double y, Double z) {
+        setPosition(new Vector(x, y, z));
+    }
+
+    @Override
+    public void setPos(Integer x, Integer y, Integer z) {
+        setPosition(new Vector(x, y, z));
+    }
+
+    @Override
+    public Vector getPos() {
+        return getPosition();
     }
 
     @Override

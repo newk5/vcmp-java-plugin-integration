@@ -228,4 +228,9 @@ public class AbstractEventHandler implements EventHandler {
     public void onPlayerCrashReport(Player player, String crashLog) {
 
     }
+    
+     @Override
+    public void onPlayerModuleList(Player player, String list) {
+
+    }
 }

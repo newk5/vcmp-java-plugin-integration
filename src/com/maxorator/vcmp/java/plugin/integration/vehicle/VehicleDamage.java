@@ -2,6 +2,7 @@ package com.maxorator.vcmp.java.plugin.integration.vehicle;
 
 @SuppressWarnings("unused")
 public class VehicleDamage {
+
     public int damage;
 
     public VehicleDamage(int damage) {
