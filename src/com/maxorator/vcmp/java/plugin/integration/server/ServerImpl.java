@@ -180,6 +180,12 @@ public class ServerImpl implements Server {
     public native int getHour();
 
     @Override
+    public native void setFallTimer(int ms);
+
+    @Override
+    public native int getFallTimer();
+
+    @Override
     public native void setMinute(int minute);
 
     @Override

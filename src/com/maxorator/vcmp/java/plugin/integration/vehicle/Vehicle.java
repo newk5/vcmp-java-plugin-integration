@@ -22,7 +22,15 @@ public interface Vehicle extends Entity {
 
     int getWorld();
 
+    int getLightsData();
+
+    void setLightsData(int val);
+
     int getModel();
+
+    void setTaxiLight(boolean b);
+
+    boolean getTaxiLight();
 
     Player getOccupant(int slot);
 
@@ -102,11 +110,11 @@ public interface Vehicle extends Entity {
 
     VehicleColours getColours();
 
-    void setOption(VehicleOption setting, boolean value);
+    void setOption(VehicleOption.Flag setting, boolean value);
 
     void setOption(int settingId, boolean value);
 
-    boolean getOption(VehicleOption setting);
+    boolean getOption(VehicleOption.Flag setting);
 
     boolean getOption(int settingId);
 

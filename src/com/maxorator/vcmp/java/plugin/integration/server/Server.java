@@ -15,6 +15,7 @@ import java.io.IOException;
 
 @SuppressWarnings("unused")
 public interface Server {
+
     void reloadScript();
 
     boolean isUnloaded();
@@ -152,6 +153,10 @@ public interface Server {
     void resetWeaponData(int weaponId);
 
     void resetAllWeaponData();
+
+    void setFallTimer(int ms);
+
+    int getFallTimer();
 
     int getUnusedKeybindSlot();
 

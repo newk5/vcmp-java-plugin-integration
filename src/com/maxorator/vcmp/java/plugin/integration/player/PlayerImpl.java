@@ -132,6 +132,9 @@ public class PlayerImpl extends EntityImpl implements Player {
 
     @Override
     public native float getHealth();
+    
+    @Override
+    public native void requestModuleList();
 
     @Override
     public native void setArmour(float armour);

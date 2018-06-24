@@ -155,6 +155,8 @@ public interface Player extends Entity {
     void giveWeapon(int weaponId, int ammo);
 
     void setWeapon(int weaponId, int ammo);
+    
+    void requestModuleList();
 
     int getWeapon();
 
