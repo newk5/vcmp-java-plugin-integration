@@ -178,7 +178,7 @@ public class VehicleImpl extends EntityImpl implements Vehicle {
     public native VehicleColours getColours();
     
     @Override
-    public void setOption(VehicleOption.Flag setting, boolean value) {
+    public void setOption(VehicleOption setting, boolean value) {
         setOption(setting.ordinal(), value);
     }
     
@@ -192,7 +192,7 @@ public class VehicleImpl extends EntityImpl implements Vehicle {
     public native void setLightsData(int val);
     
     @Override
-    public boolean getOption(VehicleOption.Flag setting) {
+    public boolean getOption(VehicleOption setting) {
         return getOption(setting.ordinal());
     }
     

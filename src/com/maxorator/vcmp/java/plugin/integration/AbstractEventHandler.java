@@ -230,6 +230,6 @@ public class AbstractEventHandler implements EventHandler {
 
     @Override
     public void onPlayerModuleList(Player player, String list) {
-
+        
     }
 }
