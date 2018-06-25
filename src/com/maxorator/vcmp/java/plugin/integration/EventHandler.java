@@ -98,5 +98,4 @@ public interface EventHandler {
 
     void onCheckPointExited(CheckPoint checkPoint, Player player);
     
-    void onPlayerModuleList(Player player, String list);
 }
