@@ -230,6 +230,10 @@ public interface Server {
 
     void resetAllWeaponData();
 
+    void setFallTimer(int ms);
+
+    int getFallTimer();
+
     int getUnusedKeybindSlot();
 
     KeyBind getKeyBind(int keyBindId);

@@ -57,6 +57,12 @@ public class PickupImpl extends EntityImpl implements Pickup {
     public native int getAutomaticTimer();
 
     @Override
+    public native void setOption(PickupOption setting, boolean value);
+
+    @Override
+    public native void setOption(int settingId, boolean value);
+
+    @Override
     public native void refresh();
 
     @Override

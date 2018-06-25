@@ -23,7 +23,15 @@ public interface Vehicle extends Entity {
 
     int getWorld();
 
+    int getLightsData();
+
+    void setLightsData(int val);
+
     int getModel();
+
+    void setTaxiLight(boolean b);
+
+    boolean getTaxiLight();
 
     Player getOccupant(int slot);
 

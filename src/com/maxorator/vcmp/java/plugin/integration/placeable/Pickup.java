@@ -41,6 +41,10 @@ public interface Pickup extends Entity {
 
     Vector getPosition();
 
+    void setOption(PickupOption setting, boolean value);
+
+    void setOption(int settingId, boolean value);
+
     int getModel();
 
     int getQuantity();

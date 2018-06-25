@@ -7,6 +7,7 @@ import com.maxorator.vcmp.java.plugin.integration.player.Player;
 import com.maxorator.vcmp.java.plugin.integration.vehicle.Vehicle;
 
 public class AbstractEventHandler implements EventHandler {
+
     @Override
     public void onServerLoadScripts() {
 
@@ -56,8 +57,6 @@ public class AbstractEventHandler implements EventHandler {
     public void onPlayerDisconnect(Player player, int reason) {
 
     }
-    
-    
 
     @Override
     public boolean onPlayerRequestClass(Player player, int classIndex) {
