@@ -23,7 +23,7 @@ public class VehicleImmunity {
     }
 
     public boolean has(Flag flag) {
-        return (hex | (1 << flag.ordinal())) != 0;
+        return (hex & (1 << flag.ordinal())) != 0;
     }
 
     public enum Flag {
