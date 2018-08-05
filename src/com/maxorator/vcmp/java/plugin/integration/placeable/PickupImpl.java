@@ -67,7 +67,7 @@ public class PickupImpl extends EntityImpl implements Pickup {
 
     @Override
     public void setPosition(Vector position) {
-        setPosition(position.x, position.y, position.z);
+        setPosition(position.getX(), position.getY(), position.getZ());
     }
 
     @Override

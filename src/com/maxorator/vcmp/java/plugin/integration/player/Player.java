@@ -14,7 +14,7 @@ public interface Player extends Entity {
     void setAdmin(boolean isAdmin);
 
     String getIP();
-    
+
     Vector getPos();
 
     void kick();
@@ -29,9 +29,9 @@ public interface Player extends Entity {
 
     void addSpeed(Double x, Double y, Double z);
 
-    void setHp(Integer hp);
+    void setHP(Integer hp);
 
-    void setHp(Double hp);
+    void setHP(Double hp);
 
     void setCameraPos(Double posX, Double posY, Double posZ, Double lookX, Double lookY, Double lookZ);
 
@@ -40,6 +40,8 @@ public interface Player extends Entity {
     void setArmour(Integer armor);
 
     void setArmour(Double armor);
+
+    boolean hasOption(int setting);
 
     void setPos(Integer x, Integer y, Integer z);
 
@@ -76,7 +78,7 @@ public interface Player extends Entity {
     void setSkin(int skinId);
 
     int getSkin();
-    
+
     void requestModuleList();
 
     void setColour(Colour colour);
@@ -118,6 +120,8 @@ public interface Player extends Entity {
     void setArmour(float armour);
 
     float getArmour();
+
+    float getHP();
 
     void setImmunities(PlayerImmunity vehicleImmunity);
 
@@ -184,7 +188,7 @@ public interface Player extends Entity {
     void giveWeapon(int weaponId, int ammo);
 
     void setWeapon(int weaponId, int ammo);
-    
+
     int getWeapon();
 
     int getWeaponAmmo();

@@ -26,7 +26,7 @@ public class CheckPointImpl extends EntityImpl implements CheckPoint {
 
     @Override
     public void setColour(Colour colour) {
-        setColour(colour.red, colour.green, colour.blue, colour.alpha);
+        setColour(colour.getRed(), colour.getGreen(), colour.getBlue(), colour.getAlpha());
     }
 
     @Override
@@ -42,7 +42,7 @@ public class CheckPointImpl extends EntityImpl implements CheckPoint {
 
     @Override
     public void setPosition(Vector position) {
-        setPosition(position.x, position.y, position.z);
+        setPosition(position.getX(), position.getY(), position.getZ());
     }
 
     @Override

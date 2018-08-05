@@ -2,10 +2,10 @@ package com.maxorator.vcmp.java.plugin.integration.generic;
 
 @SuppressWarnings("unused")
 public class Colour {
-    public int red;
-    public int green;
-    public int blue;
-    public int alpha;
+    private int red;
+    private int green;
+    private int blue;
+    private int alpha;
 
     public Colour(int hex) {
         blue = hex & 0xFF;
@@ -30,5 +30,61 @@ public class Colour {
 
     public int getHex() {
         return ((alpha & 0xFF) << 24) | ((red & 0xFF) << 16) | ((green & 0xFF) << 8) | (blue & 0xFF);
+    }
+
+    /**
+     * @return the red
+     */
+    public int getRed() {
+        return red;
+    }
+
+    /**
+     * @param red the red to set
+     */
+    public void setRed(int red) {
+        this.red = red;
+    }
+
+    /**
+     * @return the green
+     */
+    public int getGreen() {
+        return green;
+    }
+
+    /**
+     * @param green the green to set
+     */
+    public void setGreen(int green) {
+        this.green = green;
+    }
+
+    /**
+     * @return the blue
+     */
+    public int getBlue() {
+        return blue;
+    }
+
+    /**
+     * @param blue the blue to set
+     */
+    public void setBlue(int blue) {
+        this.blue = blue;
+    }
+
+    /**
+     * @return the alpha
+     */
+    public int getAlpha() {
+        return alpha;
+    }
+
+    /**
+     * @param alpha the alpha to set
+     */
+    public void setAlpha(int alpha) {
+        this.alpha = alpha;
     }
 }

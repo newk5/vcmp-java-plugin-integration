@@ -21,6 +21,12 @@ public interface Vehicle extends Entity {
 
     void setWorld(int worldId);
 
+    float getHP();
+
+    void setHP(Integer hp);
+
+    void setHP(Double hp);
+
     int getWorld();
 
     int getLightsData();
@@ -152,6 +158,8 @@ public interface Vehicle extends Entity {
     boolean getOption(VehicleOption setting);
 
     boolean getOption(int settingId);
+    
+    boolean hasOption(int settingId);
 
     VehicleDamage getDamage();
 

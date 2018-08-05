@@ -5,6 +5,7 @@ import com.maxorator.vcmp.java.plugin.integration.generic.EntityImpl;
 import com.maxorator.vcmp.java.plugin.integration.generic.Vector;
 import com.maxorator.vcmp.java.plugin.integration.placeable.GameObject;
 import com.maxorator.vcmp.java.plugin.integration.vehicle.Vehicle;
+import java.math.BigInteger;
 
 @SuppressWarnings("unused")
 public class PlayerImpl extends EntityImpl implements Player {
@@ -21,9 +22,14 @@ public class PlayerImpl extends EntityImpl implements Player {
 
     @Override
     public native String getIP();
+    
+    @Override
+    public float getHP(){
+        return getHealth();
+    }
 
     @Override
-    public void setHp(Integer hp) {
+    public void setHP(Integer hp) {
         Float f = new Float(hp + "");
         setHealth(f);
     }
@@ -44,7 +50,7 @@ public class PlayerImpl extends EntityImpl implements Player {
     }
 
     @Override
-    public void setHp(Double hp) {
+    public void setHP(Double hp) {
         Float f = new Float(hp + "");
         setHealth(f);
     }
@@ -94,6 +100,7 @@ public class PlayerImpl extends EntityImpl implements Player {
 
     @Override
     public native void requestModuleList();
+
     @Override
     public native void ban();
 
@@ -105,6 +112,10 @@ public class PlayerImpl extends EntityImpl implements Player {
 
     @Override
     public native long getUniqueId();
+
+    public BigInteger getUniqueID() {
+        return new BigInteger(getUniqueId() + "");
+    }
 
     @Override
     public native void setWorld(int worldId);
@@ -202,7 +213,7 @@ public class PlayerImpl extends EntityImpl implements Player {
 
     @Override
     public native float getHealth();
-    
+
     @Override
     public native void setArmour(float armour);
 
@@ -211,7 +222,7 @@ public class PlayerImpl extends EntityImpl implements Player {
 
     @Override
     public void setImmunities(PlayerImmunity playerImmunity) {
-        setImmunityFlags(playerImmunity.hex);
+        setImmunityFlags(playerImmunity.getFlags());
     }
 
     @Override
@@ -227,7 +238,7 @@ public class PlayerImpl extends EntityImpl implements Player {
 
     @Override
     public void setPosition(Vector position) {
-        setPosition(position.x, position.y, position.z);
+        setPosition(position.getX(), position.getY(), position.getZ());
     }
 
     @Override
@@ -241,7 +252,7 @@ public class PlayerImpl extends EntityImpl implements Player {
 
     @Override
     public void setSpeed(Vector speed) {
-        setSpeed(speed.x, speed.y, speed.z);
+        setSpeed(speed.getX(), speed.getY(), speed.getZ());
     }
 
     @Override
@@ -249,7 +260,7 @@ public class PlayerImpl extends EntityImpl implements Player {
 
     @Override
     public void addSpeed(Vector speed) {
-        addSpeed(speed.x, speed.y, speed.z);
+        addSpeed(speed.getX(), speed.getY(), speed.getZ());
     }
 
     @Override
@@ -313,6 +324,10 @@ public class PlayerImpl extends EntityImpl implements Player {
         return getOption(setting.ordinal());
     }
 
+    public boolean hasOption(int setting) {
+        return getOption(setting);
+    }
+
     @Override
     public native boolean getOption(int settingId);
 
@@ -348,7 +363,7 @@ public class PlayerImpl extends EntityImpl implements Player {
 
     @Override
     public void setCameraPosition(Vector position, Vector look) {
-        setCameraPosition(position.x, position.y, position.z, look.x, look.y, look.z);
+        setCameraPosition(position.getX(), position.getY(), position.getZ(), look.getX(), look.getY(), look.getZ());
     }
 
     @Override

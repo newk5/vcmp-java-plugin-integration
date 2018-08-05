@@ -35,7 +35,7 @@ public class GameObjectImpl extends EntityImpl implements GameObject {
 
     @Override
     public void moveTo(Vector position, int millis) {
-        moveTo(position.x, position.y, position.z, millis);
+        moveTo(position.getX(), position.getY(), position.getZ(), millis);
     }
 
     @Override
@@ -53,7 +53,7 @@ public class GameObjectImpl extends EntityImpl implements GameObject {
 
     @Override
     public void moveBy(Vector delta, int millis) {
-        moveBy(delta.x, delta.y, delta.z, millis);
+        moveBy(delta.getX(), delta.getY(), delta.getZ(), millis);
     }
 
     @Override
@@ -71,7 +71,7 @@ public class GameObjectImpl extends EntityImpl implements GameObject {
 
     @Override
     public void setPosition(Vector position) {
-        setPosition(position.x, position.y, position.z);
+        setPosition(position.getX(), position.getY(), position.getZ());
     }
 
     @Override
@@ -97,7 +97,7 @@ public class GameObjectImpl extends EntityImpl implements GameObject {
 
     @Override
     public void rotateTo(Quaternion rotation, int millis) {
-        rotateTo(rotation.x, rotation.y, rotation.z, rotation.w, millis);
+        rotateTo(rotation.getX(), rotation.getY(), rotation.getZ(), rotation.getW(), millis);
     }
 
     @Override
@@ -115,7 +115,7 @@ public class GameObjectImpl extends EntityImpl implements GameObject {
 
     @Override
     public void rotateTo(Vector rotation, int millis) {
-        rotateToEuler(rotation.x, rotation.y, rotation.z, millis);
+        rotateToEuler(rotation.getX(), rotation.getY(), rotation.getZ(), millis);
     }
 
     @Override
@@ -133,7 +133,7 @@ public class GameObjectImpl extends EntityImpl implements GameObject {
 
     @Override
     public void rotateBy(Quaternion rotation, int millis) {
-        rotateBy(rotation.x, rotation.y, rotation.z, rotation.w, millis);
+        rotateBy(rotation.getX(), rotation.getY(), rotation.getZ(), rotation.getW(), millis);
     }
 
     @Override
@@ -151,7 +151,7 @@ public class GameObjectImpl extends EntityImpl implements GameObject {
 
     @Override
     public void rotateBy(Vector rotation, int millis) {
-        rotateByEuler(rotation.x, rotation.y, rotation.z, millis);
+        rotateByEuler(rotation.getX(), rotation.getY(), rotation.getZ(), millis);
     }
 
     @Override

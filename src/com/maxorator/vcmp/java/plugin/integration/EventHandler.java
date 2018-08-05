@@ -97,5 +97,7 @@ public interface EventHandler {
     void onCheckPointEntered(CheckPoint checkPoint, Player player);
 
     void onCheckPointExited(CheckPoint checkPoint, Player player);
-    
+
+    void onServerPerformanceReport(int entry, String[] descriptions, long[] times);
+
 }
