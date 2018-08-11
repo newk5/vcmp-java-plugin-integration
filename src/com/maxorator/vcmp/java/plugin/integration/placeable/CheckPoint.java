@@ -16,26 +16,26 @@ public interface CheckPoint extends Entity {
 
     int getWorld();
 
-    void setColour(Colour colour);
-
     void setColour(int red, int green, int blue, int alpha);
+
+    void setColour(Colour colour);
 
     Colour getColour();
 
     int getColourHex();
 
-    void setPosition(Vector position);
-
     void setPosition(float x, float y, float z);
+
+    void setPosition(Vector position);
 
     void setPos(Double x, Double y, Double z);
 
     void setPos(Integer x, Integer y, Integer z);
-    
+
     void setRadius(Double radius);
-    
+
     void setRadius(Integer radius);
-    
+
     Vector getPos();
 
     Vector getPosition();

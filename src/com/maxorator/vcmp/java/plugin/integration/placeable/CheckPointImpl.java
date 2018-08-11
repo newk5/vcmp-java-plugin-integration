@@ -25,12 +25,12 @@ public class CheckPointImpl extends EntityImpl implements CheckPoint {
     public native int getWorld();
 
     @Override
+    public native void setColour(int red, int green, int blue, int alpha);
+
+    @Override
     public void setColour(Colour colour) {
         setColour(colour.getRed(), colour.getGreen(), colour.getBlue(), colour.getAlpha());
     }
-
-    @Override
-    public native void setColour(int red, int green, int blue, int alpha);
 
     @Override
     public Colour getColour() {
@@ -73,8 +73,8 @@ public class CheckPointImpl extends EntityImpl implements CheckPoint {
     public void setRadius(Double radius) {
         setRadius(new Float(radius));
     }
-    
-     @Override
+
+    @Override
     public void setRadius(Integer radius) {
         setRadius(new Float(radius));
     }

@@ -18,57 +18,7 @@ public interface Server {
 
     void reloadScript();
 
-    Vehicle createVehicle(int modelId, int worldId, Vector position, Double angle, VehicleColours colours);
-
-    Vehicle createVehicle(int modelId, int worldId, Vector position, Integer angle, VehicleColours colours);
-
-    CheckPoint createCheckPoint(Player player, int worldId, boolean isSphere, Double x, Double y, Double z, int r, int g, int b, int a, Double radius);
-
-    CheckPoint createCheckPoint(Player player, int worldId, boolean isSphere, Integer x, Integer y, Integer z, int r, int g, int b, int a, Integer radius);
-
-    Vehicle createVehicle(int modelId, int worldId, Double x, Double y, Double z, Double angle, int mainColour, int secondaryColour);
-
-    Vehicle createVehicle(int modelId, int worldId, Integer x, Integer y, Integer z, Integer angle, int mainColour, int secondaryColour);
-
-    GameObject createObject(int modelId, int worldId, Double x, Double y, Double z, int alpha);
-
-    GameObject createObject(int modelId, int worldId, Integer x, Integer y, Integer z, int alpha);
-
-    void setSpawnScreenCameraPos(Double x, Double y, Double z);
-
-    Pickup createPickup(int modelId, int worldId, int quantity, Double x, Double y, Double z, int alpha, boolean automatic);
-
-    Pickup createPickup(int modelId, int worldId, int quantity, Integer x, Integer y, Integer z, int alpha, boolean automatic);
-
-    void setSpawnScreenCameraPos(Integer x, Integer y, Integer z);
-
-    void createExplosion(int worldId, int type, Integer x, Integer y, Integer z, Player responsiblePlayer, boolean atGroundLevel);
-
-    void setSpawnScreenPlayerPos(Double x, Double y, Double z);
-
-    void setSpawnScreenPlayerPos(Integer x, Integer y, Integer z);
-
-    void playSound(int worldId, int soundId, Double x, Double y, Double z);
-
-    int createCoordBlip(int index, int worldId, Double x, Double y, Double z, int scale, int colourHex, int spriteId);
-
-    int addPlayerClass(int teamId, int colourHex, int modelId, Double x, Double y, Double z, Double angle, int weaponOne, int weaponOneAmmo, int weaponTwo, int weaponTwoAmmo, int weaponThree, int weaponThreeAmmo);
-
-    int addPlayerClass(int teamId, int colourHex, int modelId, Integer x, Integer y, Integer z, Integer angle, int weaponOne, int weaponOneAmmo, int weaponTwo, int weaponTwoAmmo, int weaponThree, int weaponThreeAmmo);
-
-    int createCoordBlip(int index, int worldId, Integer x, Integer y, Integer z, int scale, int colourHex, int spriteId);
-
-    void showMapObject(int modelId, Double x, Double y, Double z);
-
-    void showMapObject(int modelId, Integer x, Integer y, Integer z);
-
-    void playSound(int worldId, int soundId, Integer x, Integer y, Integer z);
-
-    void createExplosion(int worldId, int type, Double x, Double y, Double z, Player responsiblePlayer, boolean atGroundLevel);
-
-    void hideMapObject(int modelId, Integer x, Integer y, Integer z);
-
-    void hideMapObject(int modelId, Double x, Double y, Double z);
+    void sendClientMsg(Player recipient, Object colour, String message);
 
     boolean isUnloaded();
 
@@ -106,21 +56,23 @@ public interface Server {
 
     String getGameModeText();
 
+    double getWeaponValue(int weaponId, int field);
+
     void shutdownServer();
 
-    void setWorldBounds(MapBounds bounds);
+    void resetWeaponValue(int weaponId, int field);
+
+    void setWeaponValue(int wepId, int fieldId, Object val);
 
     void setWorldBounds(float maxX, float minX, float maxY, float minY);
 
-    void setWorldBounds(Integer maxX, Integer minX, Integer maxY, Integer minY);
-
-    void setWorldBounds(Double maxX, Double minX, Double maxY, Double minY);
+    void setWorldBounds(MapBounds bounds);
 
     MapBounds getWorldBounds();
 
-    void setWastedSettings(WastedSettings settings);
-
     void setWastedSettings(int deathTimeMillis, int fadeTimeMillis, float fadeInSpeed, float fadeOutSpeed, int fadeColourHex, int corpseFadeStart, int corpseFadeDuration);
+
+    void setWastedSettings(WastedSettings settings);
 
     WastedSettings getWastedSettings();
 
@@ -142,33 +94,17 @@ public interface Server {
 
     void setGravity(float gravity);
 
-    void setGravity(Double gravity);
-
-    void setGravity(Integer gravity);
-
     float getGravity();
 
     void setGameSpeed(float gameSpeed);
-
-    void setGameSpeed(Integer gameSpeed);
-
-    void setGameSpeed(Double gameSpeed);
 
     float getGameSpeed();
 
     void setWaterLevel(float waterLevel);
 
-    void setWaterLevel(Double waterLevel);
-
-    void setWaterLevel(Integer waterLevel);
-
     float getWaterLevel();
 
     void setAltitudeLimit(float altitudeLimit);
-
-    void setAltitudeLimit(Double altitudeLimit);
-
-    void setAltitudeLimit(Integer altitudeLimit);
 
     float getAltitudeLimit();
 
@@ -178,11 +114,9 @@ public interface Server {
 
     void setVehiclesForcedRespawnAltitude(float height);
 
-    void setVehiclesForcedRespawnAltitude(Integer height);
-
-    void setVehiclesForcedRespawnAltitude(Double height);
-
     float getVehiclesForcedRespawnAltitude();
+
+    void setVehiclesRespawnAltitude(Object v);
 
     void setOption(ServerOption setting, boolean value);
 
@@ -192,21 +126,21 @@ public interface Server {
 
     boolean getOption(int settingId);
 
-    void createExplosion(int worldId, int type, Vector position, Player responsiblePlayer, boolean atGroundLevel);
-
     void createExplosion(int worldId, int type, float x, float y, float z, Player responsiblePlayer, boolean atGroundLevel);
 
-    void playSound(int worldId, int soundId, Vector position);
+    void createExplosion(int worldId, int type, Vector position, Player responsiblePlayer, boolean atGroundLevel);
 
     void playSound(int worldId, int soundId, float x, float y, float z);
 
-    void hideMapObject(int modelId, Vector position);
+    void playSound(int worldId, int soundId, Vector position);
 
     void hideMapObject(int modelId, float x, float y, float z);
 
-    void showMapObject(int modelId, Vector position);
+    void hideMapObject(int modelId, Vector position);
 
     void showMapObject(int modelId, float x, float y, float z);
+
+    void showMapObject(int modelId, Vector position);
 
     void showAllMapObjects();
 
@@ -224,6 +158,8 @@ public interface Server {
 
     boolean isWeaponDataValueModified(int weaponId, WeaponField field);
 
+    boolean isWeaponValueModified(int weaponId, int field);
+
     boolean isWeaponDataValueModified(int weaponId, int fieldId);
 
     void resetWeaponData(int weaponId);
@@ -238,9 +174,9 @@ public interface Server {
 
     KeyBind getKeyBind(int keyBindId);
 
-    boolean registerKeyBind(KeyBind keyBind);
-
     boolean registerKeyBind(int keyBindId, boolean onRelease, int keyOne, int keyTwo, int keyThree);
+
+    boolean registerKeyBind(KeyBind keyBind);
 
     boolean removeKeyBind(int keyBindId);
 
@@ -262,17 +198,17 @@ public interface Server {
 
     int addPlayerClass(int teamId, int colourHex, int modelId, float x, float y, float z, float angle, int weaponOne, int weaponOneAmmo, int weaponTwo, int weaponTwoAmmo, int weaponThree, int weaponThreeAmmo);
 
-    void setSpawnScreenPlayerPos(Vector position);
-
     void setSpawnScreenPlayerPos(float x, float y, float z);
 
-    void setSpawnScreenCameraPos(Vector position);
+    void setSpawnScreenPlayerPos(Vector position);
 
     void setSpawnScreenCameraPos(float x, float y, float z);
 
-    void setSpawnScreenCameraLookAt(Vector position);
+    void setSpawnScreenCameraPos(Vector position);
 
     void setSpawnScreenCameraLookAt(float x, float y, float z);
+
+    void setSpawnScreenCameraLookAt(Vector position);
 
     void banAddress(String ip);
 
@@ -286,9 +222,9 @@ public interface Server {
 
     Player findPlayer(String name);
 
-    Vehicle createVehicle(int modelId, int worldId, Vector position, float angle, VehicleColours colours);
-
     Vehicle createVehicle(int modelId, int worldId, float x, float y, float z, float angle, int mainColour, int secondaryColour);
+
+    Vehicle createVehicle(int modelId, int worldId, Vector position, float angle, VehicleColours colours);
 
     Vehicle getVehicle(int index);
 
@@ -316,19 +252,20 @@ public interface Server {
 
     Pickup getPickup(int index);
 
-    Pickup createPickup(int modelId, int worldId, int quantity, Vector position, int alpha, boolean automatic);
-
     Pickup createPickup(int modelId, int worldId, int quantity, float x, float y, float z, int alpha, boolean automatic);
+
+    Pickup createPickup(int modelId, int worldId, int quantity, Vector position, int alpha, boolean automatic);
 
     GameObject getObject(int index);
 
-    GameObject createObject(int modelId, int worldId, Vector position, int alpha);
-
     GameObject createObject(int modelId, int worldId, float x, float y, float z, int alpha);
+
+    GameObject createObject(int modelId, int worldId, Vector position, int alpha);
 
     CheckPoint getCheckPoint(int index);
 
-    CheckPoint createCheckPoint(Player player, int worldId, boolean isSphere, Vector position, Colour colour, float radius);
-
     CheckPoint createCheckPoint(Player player, int worldId, boolean isSphere, float x, float y, float z, int r, int g, int b, int a, float radius);
+
+    CheckPoint createCheckPoint(Player player, int worldId, boolean isSphere, Vector position, Colour colour, Object radius);
+
 }

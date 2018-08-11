@@ -93,204 +93,6 @@ public class ServerImpl implements Server {
     }
 
     @Override
-    public CheckPoint createCheckPoint(Player player, int worldId, boolean isSphere, Double x, Double y, Double z, int r, int g, int b, int a, Double radius) {
-        Colour c = new Colour(r, g, b, a);
-        return createCheckPoint(player, worldId, isSphere, new Vector(x, y, z), c, new Float(radius));
-    }
-
-    @Override
-    public CheckPoint createCheckPoint(Player player, int worldId, boolean isSphere, Integer x, Integer y, Integer z, int r, int g, int b, int a, Integer radius) {
-        Colour c = new Colour(r, g, b, a);
-        return createCheckPoint(player, worldId, isSphere, new Vector(x, y, z), c, new Float(radius));
-    }
-
-    @Override
-    public void setGameSpeed(Integer gameSpeed) {
-        setGameSpeed(new Float(gameSpeed));
-    }
-
-    @Override
-    public void setGameSpeed(Double gameSpeed) {
-        setGameSpeed(new Float(gameSpeed));
-    }
-
-    @Override
-    public void setGravity(Integer grav) {
-        setGravity(new Float(grav));
-    }
-
-    @Override
-    public void setGravity(Double grav) {
-        setGravity(new Float(grav));
-    }
-
-    @Override
-    public void setWaterLevel(Integer waterLevel) {
-        setWaterLevel(new Float(waterLevel));
-    }
-
-    @Override
-    public void setWaterLevel(Double waterLevel) {
-        setWaterLevel(new Float(waterLevel));
-    }
-
-    @Override
-    public void setAltitudeLimit(Integer alt) {
-        setAltitudeLimit(new Float(alt));
-    }
-
-    @Override
-    public void setAltitudeLimit(Double alt) {
-        setAltitudeLimit(new Float(alt));
-    }
-
-    @Override
-    public void setVehiclesForcedRespawnAltitude(Integer alt) {
-        setVehiclesForcedRespawnAltitude(new Float(alt));
-    }
-
-    @Override
-    public void setVehiclesForcedRespawnAltitude(Double alt) {
-        setVehiclesForcedRespawnAltitude(new Float(alt));
-    }
-
-    @Override
-    public GameObject createObject(int modelId, int worldId, Double x, Double y, Double z, int alpha) {
-        return createObject(modelId, worldId, new Vector(x, y, z), alpha);
-    }
-
-    @Override
-    public GameObject createObject(int modelId, int worldId, Integer x, Integer y, Integer z, int alpha) {
-        return createObject(modelId, worldId, new Vector(x, y, z), alpha);
-    }
-
-    @Override
-    public Pickup createPickup(int modelId, int worldId, int quantity, Double x, Double y, Double z, int alpha, boolean automatic) {
-        return createPickup(modelId, worldId, quantity, new Vector(x, y, z), alpha, automatic);
-    }
-
-    @Override
-    public Pickup createPickup(int modelId, int worldId, int quantity, Integer x, Integer y, Integer z, int alpha, boolean automatic) {
-        return createPickup(modelId, worldId, quantity, new Vector(x, y, z), alpha, automatic);
-    }
-
-    @Override
-    public Vehicle createVehicle(int modelId, int worldId, Double x, Double y, Double z, Double angle, int mainColour, int secondaryColour) {
-        VehicleColours col = new VehicleColours(mainColour, secondaryColour);
-        return createVehicle(modelId, worldId, new Vector(x, y, z), new Float(angle), col);
-    }
-
-    @Override
-    public Vehicle createVehicle(int modelId, int worldId, Integer x, Integer y, Integer z, Integer angle, int mainColour, int secondaryColour) {
-        VehicleColours col = new VehicleColours(mainColour, secondaryColour);
-        return createVehicle(modelId, worldId, new Vector(x, y, z), new Float(angle), col);
-    }
-
-    @Override
-    public Vehicle createVehicle(int modelId, int worldId, Vector position, Integer angle, VehicleColours colours) {
-        Vehicle v = createVehicle(modelId, worldId, position.getX(), position.getY(), position.getZ(), angle, colours.getPrimary(), colours.getSecondary());
-        v.clearData();
-        return v;
-    }
-
-    @Override
-    public Vehicle createVehicle(int modelId, int worldId, Vector position, Double angle, VehicleColours colours) {
-        Vehicle v = createVehicle(modelId, worldId, position.getX(), position.getY(), position.getZ(), new Float(angle), colours.getPrimary(), colours.getSecondary());
-        v.clearData();
-        return v;
-    }
-
-    @Override
-    public void setSpawnScreenPlayerPos(Double x, Double y, Double z) {
-        setSpawnScreenPlayerPos(new Float(x), new Float(y), new Float(z));
-    }
-
-    @Override
-    public void setSpawnScreenPlayerPos(Integer x, Integer y, Integer z) {
-        setSpawnScreenPlayerPos(new Float(x), new Float(y), new Float(z));
-    }
-
-    @Override
-    public int addPlayerClass(int teamId, int colourHex, int modelId, Double x, Double y, Double z, Double angle, int weaponOne, int weaponOneAmmo, int weaponTwo, int weaponTwoAmmo, int weaponThree, int weaponThreeAmmo) {
-        return addPlayerClass(teamId, colourHex, modelId, new Float(x), new Float(y), new Float(z), new Float(angle), weaponOne, weaponOneAmmo, weaponTwo, weaponTwoAmmo, weaponThree, weaponThreeAmmo);
-    }
-
-    @Override
-    public int addPlayerClass(int teamId, int colourHex, int modelId, Integer x, Integer y, Integer z, Integer angle, int weaponOne, int weaponOneAmmo, int weaponTwo, int weaponTwoAmmo, int weaponThree, int weaponThreeAmmo) {
-        return addPlayerClass(teamId, colourHex, modelId, new Float(x), new Float(y), new Float(z), new Float(angle), weaponOne, weaponOneAmmo, weaponTwo, weaponTwoAmmo, weaponThree, weaponThreeAmmo);
-    }
-
-    @Override
-    public void setSpawnScreenCameraPos(Double x, Double y, Double z) {
-        setSpawnScreenCameraPos(new Float(x), new Float(y), new Float(z));
-    }
-
-    @Override
-    public void setSpawnScreenCameraPos(Integer x, Integer y, Integer z) {
-        setSpawnScreenCameraPos(new Float(x), new Float(y), new Float(z));
-    }
-
-    @Override
-    public int createCoordBlip(int index, int worldId, Integer x, Integer y, Integer z, int scale, int colourHex, int spriteId) {
-        return createCoordBlip(index, worldId, new Float(x), new Float(y), new Float(z), scale, colourHex, spriteId);
-    }
-
-    @Override
-    public int createCoordBlip(int index, int worldId, Double x, Double y, Double z, int scale, int colourHex, int spriteId) {
-        return createCoordBlip(index, worldId, new Float(x), new Float(y), new Float(z), scale, colourHex, spriteId);
-    }
-
-    @Override
-    public void showMapObject(int modelId, Double x, Double y, Double z) {
-        showMapObject(modelId, new Double(x), new Double(y), new Double(z));
-    }
-
-    @Override
-    public void showMapObject(int modelId, Integer x, Integer y, Integer z) {
-        showMapObject(modelId, new Integer(x), new Integer(y), new Integer(z));
-    }
-
-    @Override
-    public void setWorldBounds(Integer maxX, Integer minX, Integer maxY, Integer minY) {
-        setWorldBounds(new Float(maxX), new Float(minX), new Float(maxY), new Float(minY));
-    }
-
-    @Override
-    public void setWorldBounds(Double maxX, Double minX, Double maxY, Double minY) {
-        setWorldBounds(new Float(maxX), new Float(minX), new Float(maxY), new Float(minY));
-    }
-
-    @Override
-    public void createExplosion(int worldId, int type, Integer x, Integer y, Integer z, Player responsiblePlayer, boolean atGroundLevel) {
-        createExplosion(worldId, type, new Float(x), new Float(y), new Float(z), responsiblePlayer, atGroundLevel);
-    }
-
-    @Override
-    public void createExplosion(int worldId, int type, Double x, Double y, Double z, Player responsiblePlayer, boolean atGroundLevel) {
-        createExplosion(worldId, type, new Float(x), new Float(y), new Float(z), responsiblePlayer, atGroundLevel);
-    }
-
-    @Override
-    public void hideMapObject(int modelId, Integer x, Integer y, Integer z) {
-        hideMapObject(modelId, new Float(x), new Float(y), new Float(z));
-    }
-
-    @Override
-    public void hideMapObject(int modelId, Double x, Double y, Double z) {
-        hideMapObject(modelId, new Float(x), new Float(y), new Float(z));
-    }
-
-    @Override
-    public void playSound(int worldId, int soundId, Double x, Double y, Double z) {
-        playSound(worldId, soundId, new Float(x), new Float(y), new Float(z));
-    }
-
-    @Override
-    public void playSound(int worldId, int soundId, Integer x, Integer y, Integer z) {
-        playSound(worldId, soundId, new Float(x), new Float(y), new Float(z));
-    }
-
-    @Override
     public native void rewireEvents(RootEventHandler handler, long usedEvents);
 
     @Override
@@ -302,6 +104,15 @@ public class ServerImpl implements Server {
     @Override
     public void sendClientMessage(Player recipient, Colour colour, String message) {
         sendClientMessage(recipient, colour.getHex(), message);
+    }
+
+    @Override
+    public void sendClientMsg(Player recipient, Object colour, String message) {
+        if (colour instanceof Integer) {
+            sendClientMessage(recipient, (int) colour, message);
+        } else {
+            sendClientMessage(recipient, (Colour) colour, message);
+        }
     }
 
     @Override
@@ -344,23 +155,23 @@ public class ServerImpl implements Server {
     public native void shutdownServer();
 
     @Override
+    public native void setWorldBounds(float maxX, float minX, float maxY, float minY);
+
+    @Override
     public void setWorldBounds(MapBounds bounds) {
         setWorldBounds(bounds.getMaxX(), bounds.getMinX(), bounds.getMaxY(), bounds.getMinY());
     }
 
     @Override
-    public native void setWorldBounds(float maxX, float minX, float maxY, float minY);
+    public native MapBounds getWorldBounds();
 
     @Override
-    public native MapBounds getWorldBounds();
+    public native void setWastedSettings(int deathTimeMillis, int fadeTimeMillis, float fadeInSpeed, float fadeOutSpeed, int fadeColourHex, int corpseFadeStart, int corpseFadeDuration);
 
     @Override
     public void setWastedSettings(WastedSettings settings) {
         setWastedSettings(settings.getDeathTimeMillis(), settings.getFadeTimeMillis(), settings.getFadeInSpeed(), settings.getFadeOutSpeed(), settings.getFadeColour().getHex(), settings.getCorpseFadeStart(), settings.getCorpseFadeDuration());
     }
-
-    @Override
-    public native void setWastedSettings(int deathTimeMillis, int fadeTimeMillis, float fadeInSpeed, float fadeOutSpeed, int fadeColourHex, int corpseFadeStart, int corpseFadeDuration);
 
     @Override
     public native WastedSettings getWastedSettings();
@@ -448,12 +259,15 @@ public class ServerImpl implements Server {
     public native boolean getOption(int settingId);
 
     @Override
+    public native void createExplosion(int worldId, int type, float x, float y, float z, Player responsiblePlayer, boolean atGroundLevel);
+
+    @Override
     public void createExplosion(int worldId, int type, Vector position, Player responsiblePlayer, boolean atGroundLevel) {
         createExplosion(worldId, type, position.getX(), position.getY(), position.getZ(), responsiblePlayer, atGroundLevel);
     }
 
     @Override
-    public native void createExplosion(int worldId, int type, float x, float y, float z, Player responsiblePlayer, boolean atGroundLevel);
+    public native void playSound(int worldId, int soundId, float x, float y, float z);
 
     @Override
     public void playSound(int worldId, int soundId, Vector position) {
@@ -461,7 +275,7 @@ public class ServerImpl implements Server {
     }
 
     @Override
-    public native void playSound(int worldId, int soundId, float x, float y, float z);
+    public native void hideMapObject(int modelId, float x, float y, float z);
 
     @Override
     public void hideMapObject(int modelId, Vector position) {
@@ -469,7 +283,7 @@ public class ServerImpl implements Server {
     }
 
     @Override
-    public native void hideMapObject(int modelId, float x, float y, float z);
+    public native void showMapObject(int modelId, float x, float y, float z);
 
     @Override
     public void showMapObject(int modelId, Vector position) {
@@ -477,14 +291,16 @@ public class ServerImpl implements Server {
     }
 
     @Override
-    public native void showMapObject(int modelId, float x, float y, float z);
-
-    @Override
     public native void showAllMapObjects();
 
     @Override
     public void setWeaponDataValue(int weaponId, WeaponField field, double value) {
         setWeaponDataValue(weaponId, field.ordinal(), value);
+    }
+
+    @Override
+    public void setWeaponValue(int wepId, int fieldId, Object val) {
+        setWeaponDataValue(wepId, fieldId, (double) val);
     }
 
     @Override
@@ -496,6 +312,11 @@ public class ServerImpl implements Server {
     }
 
     @Override
+    public double getWeaponValue(int weaponId, int field) {
+        return getWeaponDataValue(weaponId, field);
+    }
+
+    @Override
     public native double getWeaponDataValue(int weaponId, int fieldId);
 
     @Override
@@ -504,11 +325,21 @@ public class ServerImpl implements Server {
     }
 
     @Override
+    public void resetWeaponValue(int weaponId, int field) {
+        resetWeaponDataValue(weaponId, field);
+    }
+
+    @Override
     public native void resetWeaponDataValue(int weaponId, int fieldId);
 
     @Override
     public boolean isWeaponDataValueModified(int weaponId, WeaponField field) {
         return isWeaponDataValueModified(weaponId, field.ordinal());
+    }
+
+    @Override
+    public boolean isWeaponValueModified(int weaponId, int field) {
+        return isWeaponDataValueModified(weaponId, field);
     }
 
     @Override
@@ -527,12 +358,12 @@ public class ServerImpl implements Server {
     public native KeyBind getKeyBind(int keyBindId);
 
     @Override
+    public native boolean registerKeyBind(int keyBindId, boolean onRelease, int keyOne, int keyTwo, int keyThree);
+
+    @Override
     public boolean registerKeyBind(KeyBind keyBind) {
         return registerKeyBind(keyBind.getId(), keyBind.isOnRelease(), keyBind.getKeys()[0], keyBind.getKeys()[1], keyBind.getKeys()[2]);
     }
-
-    @Override
-    public native boolean registerKeyBind(int keyBindId, boolean onRelease, int keyOne, int keyTwo, int keyThree);
 
     @Override
     public native boolean removeKeyBind(int keyBindId);
@@ -541,12 +372,12 @@ public class ServerImpl implements Server {
     public native void removeAllKeyBinds();
 
     @Override
+    public native int createCoordBlip(int index, int worldId, float x, float y, float z, int scale, int colourHex, int spriteId);
+
+    @Override
     public int createCoordBlip(CoordBlipInfo info) {
         return createCoordBlip(info.getIndex(), info.getWorldId(), info.getPosition().getX(), info.getPosition().getY(), info.getPosition().getZ(), info.getScale(), info.getColour().getHex(), info.getSpriteId());
     }
-
-    @Override
-    public native int createCoordBlip(int index, int worldId, float x, float y, float z, int scale, int colourHex, int spriteId);
 
     @Override
     public native void destroyCoordBlip(int index);
@@ -575,12 +406,15 @@ public class ServerImpl implements Server {
     public native int addPlayerClass(int teamId, int colourHex, int modelId, float x, float y, float z, float angle, int weaponOne, int weaponOneAmmo, int weaponTwo, int weaponTwoAmmo, int weaponThree, int weaponThreeAmmo);
 
     @Override
+    public native void setSpawnScreenPlayerPos(float x, float y, float z);
+
+    @Override
     public void setSpawnScreenPlayerPos(Vector position) {
         setSpawnScreenPlayerPos(position.getX(), position.getY(), position.getZ());
     }
 
     @Override
-    public native void setSpawnScreenPlayerPos(float x, float y, float z);
+    public native void setSpawnScreenCameraPos(float x, float y, float z);
 
     @Override
     public void setSpawnScreenCameraPos(Vector position) {
@@ -588,15 +422,12 @@ public class ServerImpl implements Server {
     }
 
     @Override
-    public native void setSpawnScreenCameraPos(float x, float y, float z);
+    public native void setSpawnScreenCameraLookAt(float x, float y, float z);
 
     @Override
     public void setSpawnScreenCameraLookAt(Vector position) {
         setSpawnScreenCameraLookAt(position.getX(), position.getY(), position.getZ());
     }
-
-    @Override
-    public native void setSpawnScreenCameraLookAt(float x, float y, float z);
 
     @Override
     public native void banAddress(String ip);
@@ -616,16 +447,16 @@ public class ServerImpl implements Server {
     @Override
     public native Player findPlayer(String name);
 
+    @Deprecated
+    @Override
+    public native Vehicle createVehicle(int modelId, int worldId, float x, float y, float z, float angle, int mainColour, int secondaryColour);
+
     @Override
     public Vehicle createVehicle(int modelId, int worldId, Vector position, float angle, VehicleColours colours) {
         Vehicle v = createVehicle(modelId, worldId, position.getX(), position.getY(), position.getZ(), angle, colours.getPrimary(), colours.getSecondary());
         v.clearData();
         return v;
     }
-
-    @Deprecated
-    @Override
-    public native Vehicle createVehicle(int modelId, int worldId, float x, float y, float z, float angle, int mainColour, int secondaryColour);
 
     @Override
     public native Vehicle getVehicle(int index);
@@ -647,6 +478,11 @@ public class ServerImpl implements Server {
     @Override
     public void setHandlingRule(int modelId, HandlingRule rule, double value) {
         setHandlingRule(modelId, rule.ordinal(), value);
+    }
+
+    @Override
+    public void setVehiclesRespawnAltitude(Object v) {
+        setVehiclesForcedRespawnAltitude((float) v);
     }
 
     @Override
@@ -674,6 +510,10 @@ public class ServerImpl implements Server {
     @Override
     public native Pickup getPickup(int index);
 
+    @Deprecated
+    @Override
+    public native Pickup createPickup(int modelId, int worldId, int quantity, float x, float y, float z, int alpha, boolean automatic);
+
     @Override
     public Pickup createPickup(int modelId, int worldId, int quantity, Vector position, int alpha, boolean automatic) {
         Pickup p = createPickup(modelId, worldId, quantity, position.getX(), position.getY(), position.getZ(), alpha, automatic);
@@ -681,12 +521,12 @@ public class ServerImpl implements Server {
         return p;
     }
 
-    @Deprecated
-    @Override
-    public native Pickup createPickup(int modelId, int worldId, int quantity, float x, float y, float z, int alpha, boolean automatic);
-
     @Override
     public native GameObject getObject(int index);
+
+    @Deprecated
+    @Override
+    public native GameObject createObject(int modelId, int worldId, float x, float y, float z, int alpha);
 
     @Override
     public GameObject createObject(int modelId, int worldId, Vector position, int alpha) {
@@ -695,22 +535,18 @@ public class ServerImpl implements Server {
         return go;
     }
 
-    @Deprecated
-    @Override
-    public native GameObject createObject(int modelId, int worldId, float x, float y, float z, int alpha);
-
     @Override
     public native CheckPoint getCheckPoint(int index);
-
-    @Override
-    public CheckPoint createCheckPoint(Player player, int worldId, boolean isSphere, Vector position, Colour colour, float radius) {
-        CheckPoint cp = createCheckPoint(player, worldId, isSphere, position.getX(), position.getY(), position.getZ(), colour.getRed(), colour.getGreen(), colour.getBlue(), colour.getAlpha(), radius);
-        cp.clearData();
-        return cp;
-    }
 
     @Deprecated
     @Override
     public native CheckPoint createCheckPoint(Player player, int worldId, boolean isSphere, float x, float y, float z, int r, int g, int b, int a, float radius);
+
+    @Override
+    public CheckPoint createCheckPoint(Player player, int worldId, boolean isSphere, Vector position, Colour colour, Object radius) {
+        CheckPoint cp = createCheckPoint(player, worldId, isSphere, position.getX(), position.getY(), position.getZ(), colour.getRed(), colour.getGreen(), colour.getBlue(), colour.getAlpha(), (float) radius);
+        cp.clearData();
+        return cp;
+    }
 
 }
