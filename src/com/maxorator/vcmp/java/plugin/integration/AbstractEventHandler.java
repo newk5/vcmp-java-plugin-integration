@@ -37,6 +37,11 @@ public class AbstractEventHandler implements EventHandler {
     public void onPluginCommand(int identifier, String message) {
 
     }
+    
+    @Override
+    public void onServerPerformanceReport(int entry, String[] descriptions, long[] times) {
+       
+    }
 
     @Override
     public String onIncomingConnection(String name, String password, String ip) {

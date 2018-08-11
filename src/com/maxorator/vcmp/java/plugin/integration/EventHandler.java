@@ -62,7 +62,7 @@ public interface EventHandler {
     void onPlayerAwayChange(Player player, boolean isAway);
 
     boolean onPlayerMessage(Player player, String message);
-    
+
     void onPlayerCrashReport(Player player, String crashLog);
 
     boolean onPlayerCommand(Player player, String message);
@@ -94,6 +94,9 @@ public interface EventHandler {
     void onCheckPointEntered(CheckPoint checkPoint, Player player);
 
     void onCheckPointExited(CheckPoint checkPoint, Player player);
-    
+
     void onPlayerModuleList(Player player, String list);
+
+    void onServerPerformanceReport(int entry, String[] descriptions, long[] times);
+
 }
