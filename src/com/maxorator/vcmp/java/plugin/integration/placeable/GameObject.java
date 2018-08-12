@@ -52,9 +52,9 @@ public interface GameObject extends Entity {
 
     void rotateTo(Integer x, Integer y, Integer z, Integer w, int millis);
 
-    void rotateToEuler(Double x, Double y, Double z, Double w, int millis);
+    void rotateToEuler(Double x, Double y, Double z,  int millis);
 
-    void rotateToEuler(Integer x, Integer y, Integer z, Integer w, int millis);
+    void rotateToEuler(Integer x, Integer y, Integer z,  int millis);
 
     void moveBy(Vector delta, int millis);
 
@@ -68,19 +68,11 @@ public interface GameObject extends Entity {
 
     void rotateTo(Quaternion rotation, int millis);
 
-    void rotateTo(float x, float y, float z, float w, int millis);
-
     void rotateTo(Vector rotation, int millis);
-
-    void rotateToEuler(float x, float y, float z, int millis);
 
     void rotateBy(Quaternion rotation, int millis);
 
-    void rotateBy(float x, float y, float z, float w, int millis);
-
     void rotateBy(Vector rotation, int millis);
-
-    void rotateByEuler(float x, float y, float z, int millis);
 
     Quaternion getRotation();
 
@@ -93,4 +85,12 @@ public interface GameObject extends Entity {
     void setTouchedReportEnabled(boolean value);
 
     boolean isTouchedReportEnabled();
+
+    void rotateTo(float x, float y, float z, float w, int millis);
+
+    void rotateToEuler(float x, float y, float z, int millis);
+
+    void rotateBy(float x, float y, float z, float w, int millis);
+
+    void rotateByEuler(float x, float y, float z, int millis);
 }

@@ -264,8 +264,7 @@ public interface Server {
 
     CheckPoint getCheckPoint(int index);
 
-    CheckPoint createCheckPoint(Player player, int worldId, boolean isSphere, float x, float y, float z, int r, int g, int b, int a, float radius);
-
     CheckPoint createCheckPoint(Player player, int worldId, boolean isSphere, Vector position, Colour colour, Object radius);
 
+    CheckPoint createCheckPoint(Player player, int worldId, boolean isSphere, float x, float y, float z, int r, int g, int b, int a, float radius);
 }

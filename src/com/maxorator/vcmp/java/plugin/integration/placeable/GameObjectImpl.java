@@ -101,9 +101,6 @@ public class GameObjectImpl extends EntityImpl implements GameObject {
     }
 
     @Override
-    public native void rotateTo(float x, float y, float z, float w, int millis);
-
-    @Override
     public void rotateTo(Double x, Double y, Double z, Double w, int millis) {
         rotateTo(new Quaternion(x, y, z, w), millis);
     }
@@ -119,15 +116,12 @@ public class GameObjectImpl extends EntityImpl implements GameObject {
     }
 
     @Override
-    public native void rotateToEuler(float x, float y, float z, int millis);
-
-    @Override
-    public void rotateToEuler(Double x, Double y, Double z, Double w, int millis) {
+    public void rotateToEuler(Double x, Double y, Double z, int millis) {
         rotateToEuler(new Float(x), new Float(y), new Float(z), millis);
     }
 
     @Override
-    public void rotateToEuler(Integer x, Integer y, Integer z, Integer w, int millis) {
+    public void rotateToEuler(Integer x, Integer y, Integer z, int millis) {
         rotateToEuler(new Float(x), new Float(y), new Float(z), millis);
     }
 
@@ -147,17 +141,11 @@ public class GameObjectImpl extends EntityImpl implements GameObject {
     }
 
     @Override
-    public native void rotateBy(float x, float y, float z, float w, int millis);
-
-    @Override
     public void rotateBy(Vector rotation, int millis) {
         rotateByEuler(rotation.getX(), rotation.getY(), rotation.getZ(), millis);
     }
 
     @Override
-    public native void rotateByEuler(float x, float y, float z, int millis);
-    
-     @Override
     public void rotateByEuler(Double x, Double y, Double z, int millis) {
         rotateByEuler(new Float(x), new Float(y), new Float(z), millis);
     }
@@ -184,4 +172,17 @@ public class GameObjectImpl extends EntityImpl implements GameObject {
 
     @Override
     public native boolean isTouchedReportEnabled();
+
+    @Override
+    public native void rotateTo(float x, float y, float z, float w, int millis);
+
+    @Override
+    public native void rotateToEuler(float x, float y, float z, int millis);
+
+    @Override
+    public native void rotateBy(float x, float y, float z, float w, int millis);
+
+    @Override
+    public native void rotateByEuler(float x, float y, float z, int millis);
+
 }

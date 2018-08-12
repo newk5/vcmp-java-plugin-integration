@@ -482,7 +482,7 @@ public class ServerImpl implements Server {
 
     @Override
     public void setVehiclesRespawnAltitude(Object v) {
-        setVehiclesForcedRespawnAltitude((float) v);
+        setVehiclesForcedRespawnAltitude(Float.valueOf(v+""));
     }
 
     @Override
@@ -544,7 +544,7 @@ public class ServerImpl implements Server {
 
     @Override
     public CheckPoint createCheckPoint(Player player, int worldId, boolean isSphere, Vector position, Colour colour, Object radius) {
-        CheckPoint cp = createCheckPoint(player, worldId, isSphere, position.getX(), position.getY(), position.getZ(), colour.getRed(), colour.getGreen(), colour.getBlue(), colour.getAlpha(), (float) radius);
+        CheckPoint cp = createCheckPoint(player, worldId, isSphere, position.getX(), position.getY(), position.getZ(), colour.getRed(), colour.getGreen(), colour.getBlue(), colour.getAlpha(), Float.valueOf(radius+""));
         cp.clearData();
         return cp;
     }

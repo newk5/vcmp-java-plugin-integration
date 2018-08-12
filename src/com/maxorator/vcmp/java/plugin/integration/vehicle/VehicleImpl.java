@@ -119,9 +119,6 @@ public class VehicleImpl extends EntityImpl implements Vehicle {
     }
 
     @Override
-    public native void setRotationEuler(float x, float y, float z);
-
-    @Override
     public void setRotationEuler(Double x, Double y, Double z) {
         setRotationEuler(new Float(x), new Float(y), new Float(z));
     }
@@ -130,6 +127,9 @@ public class VehicleImpl extends EntityImpl implements Vehicle {
     public void setRotationEuler(Integer x, Integer y, Integer z) {
         setRotationEuler(new Float(x), new Float(y), new Float(z));
     }
+
+    @Override
+    public native void setRotationEuler(float x, float y, float z);
 
     @Override
     public native Vector getRotationEuler();
@@ -161,9 +161,6 @@ public class VehicleImpl extends EntityImpl implements Vehicle {
     }
 
     @Override
-    public native void setTurnSpeed(float x, float y, float z, boolean add, boolean relative);
-
-    @Override
     public void setTurnSpeed(Double x, Double y, Double z, boolean add, boolean relative) {
         setTurnSpeed(new Float(x), new Float(y), new Float(z), add, relative);
     }
@@ -173,6 +170,8 @@ public class VehicleImpl extends EntityImpl implements Vehicle {
         setTurnSpeed(new Float(x), new Float(y), new Float(z), add, relative);
     }
 
+    @Override
+    public native void setTurnSpeed(float x, float y, float z, boolean add, boolean relative);
     @Override
     public native Vector getTurnSpeed(boolean relative);
 
@@ -250,8 +249,6 @@ public class VehicleImpl extends EntityImpl implements Vehicle {
 
     @Override
     public native float getHealth();
-
-  
 
     @Override
     public float getHP() {
@@ -383,6 +380,6 @@ public class VehicleImpl extends EntityImpl implements Vehicle {
 
     @Override
     public boolean hasOption(int settingId) {
-       return getOption(settingId);
+        return getOption(settingId);
     }
 }
