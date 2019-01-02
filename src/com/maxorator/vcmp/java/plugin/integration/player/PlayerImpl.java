@@ -22,9 +22,9 @@ public class PlayerImpl extends EntityImpl implements Player {
 
     @Override
     public native String getIP();
-    
+
     @Override
-    public float getHP(){
+    public float getHP() {
         return getHealth();
     }
 
@@ -40,13 +40,8 @@ public class PlayerImpl extends EntityImpl implements Player {
     }
 
     @Override
-    public void setPos(Integer x, Integer y, Integer z) {
-        setPosition(new Float(x), new Float(y), new Float(z));
-    }
-
-    @Override
-    public void setPos(Double x, Double y, Double z) {
-        setPosition(new Float(x), new Float(y), new Float(z));
+    public void setPos(Vector v) {
+        setPosition(v);
     }
 
     @Override
@@ -157,12 +152,12 @@ public class PlayerImpl extends EntityImpl implements Player {
     public native int getSkin();
 
     @Override
+    public native void setColour(int colour);
+
+    @Override
     public void setColour(Colour colour) {
         setColour(colour.getHex());
     }
-
-    @Override
-    public native void setColour(int colour);
 
     @Override
     public Colour getColour() {

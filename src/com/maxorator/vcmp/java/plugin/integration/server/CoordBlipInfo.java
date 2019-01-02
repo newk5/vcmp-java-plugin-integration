@@ -11,6 +11,10 @@ public class CoordBlipInfo {
     private int scale;
     private Colour colour;
     private int spriteId;
+    private Vector pos;
+    
+    
+    private Server server;
 
     public CoordBlipInfo(int index, int worldId, Vector position, int scale, Colour colour, int spriteId) {
         this.index = index;
@@ -59,6 +63,19 @@ public class CoordBlipInfo {
      */
     public void setWorldId(int worldId) {
         this.worldId = worldId;
+        recreate();
+
+    }
+
+    public void recreate() {
+        server.destroyCoordBlip(index);
+        server.createCoordBlip(this);
+    }
+
+    public CoordBlipInfo makeCopy(CoordBlipInfo old) {
+        CoordBlipInfo b = new CoordBlipInfo(index, worldId, position, scale, colour, spriteId);
+
+        return b;
     }
 
     /**
@@ -73,6 +90,8 @@ public class CoordBlipInfo {
      */
     public void setPosition(Vector position) {
         this.position = position;
+
+        recreate();
     }
 
     /**
@@ -87,6 +106,7 @@ public class CoordBlipInfo {
      */
     public void setScale(int scale) {
         this.scale = scale;
+        recreate();
     }
 
     /**
@@ -101,6 +121,7 @@ public class CoordBlipInfo {
      */
     public void setColour(Colour colour) {
         this.colour = colour;
+        recreate();
     }
 
     /**
@@ -115,5 +136,36 @@ public class CoordBlipInfo {
      */
     public void setSpriteId(int spriteId) {
         this.spriteId = spriteId;
+        recreate();
+    }
+
+    /**
+     * @return the server
+     */
+    public Server getServer() {
+        return server;
+    }
+
+    /**
+     * @param server the server to set
+     */
+    public void setServer(Server server) {
+        this.server = server;
+    }
+
+    /**
+     * @return the pos
+     */
+    public Vector getPos() {
+        return pos;
+    }
+
+    /**
+     * @param pos the pos to set
+     */
+    public void setPos(Vector pos) {
+        this.pos = pos;
+        this.position = pos;
+        recreate();
     }
 }

@@ -43,9 +43,7 @@ public interface Player extends Entity {
 
     boolean hasOption(int setting);
 
-    void setPos(Integer x, Integer y, Integer z);
-
-    void setPos(Double x, Double y, Double z);
+    void setPos(Vector v);
 
     boolean isSpawned();
 
@@ -81,9 +79,9 @@ public interface Player extends Entity {
 
     void requestModuleList();
 
-    void setColour(Colour colour);
-
     void setColour(int colour);
+
+    void setColour(Colour colour);
 
     Colour getColour();
 
