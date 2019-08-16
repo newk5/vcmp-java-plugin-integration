@@ -12,8 +12,10 @@ public class Root {
             throw new RuntimeException("Invalid plugin version: required " + PLUGIN_MAJOR_VERSION + ", detected " + pluginMajorVersion + ".");
         }
 
-        URLClassLoader currentUrlLoader = (URLClassLoader) Root.class.getClassLoader();
-        SeedLoader seedLoader = new SeedLoader(currentUrlLoader.getURLs());
+        String path = "file:/"+System.getProperty("java.class.path");
+        SeedLoader seedLoader = new SeedLoader(new URL[]{
+            new URL(path)
+        });
 
         Class<?> seedClass = seedLoader.loadSeed();
         Thread.currentThread().setContextClassLoader(seedLoader);
